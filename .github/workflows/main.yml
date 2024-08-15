@@ -1,7 +1,7 @@
 name: Vercel Deployment
 env:
-  DOE_FA_ID: ${{secrets.DOE_FA_ID}}
-  DOE_FA_ID2: ${{secrets.DOE_FA_ID2}}
+  DOE_FA_ID_PROJECT: ${{secrets.DOE_FA_ID}}
+  DOE_FA_ID_ORG: ${{secrets.DOE_FA_ID2}}
 
 on:
   push:
