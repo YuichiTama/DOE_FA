@@ -1,41 +1,41 @@
 name: Vercel Deployment
 env:
-  DOE_FA_ID: ${{ secrets.DOE_FA_ID }}
-  DOE_FA_ID2: ${{ secrets.DOE_FA_ID2 }}
+  DOE_FA_ID: ${{secrets.DOE_FA_ID}}
+  DOE_FA_ID2: ${{secrets.DOE_FA_ID2}}
 
 on:
   push:
     branches:
-      - main
+      -main
 
 jobs:
   Deploy-development:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: "checkout code"
-        uses: actions/checkout@v4
-      - name: Install Node.js
-        uses: actions/setup-node@v4
-
-      - name: Install npm
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          registy-url: 'https://registry.npmjs.org'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Install Vercel CLI
-        run: npm install --global vercel@latest
-
-      - name: Pull Vercel Enviroment Information
-        run: vercel pull --yes --enviroment=development --token=${{ secrets.DOE_FA_ID3}}
-
-      - name: Build Project Artifacts
-        run: vercel build --prod --token=${{ secrets.DOE_FA_ID3}}
-
-      - name: Deploy Project Artifacts
-        run: vercel deploy --prebuilt --prod --token=${{ secrets.DOE_FA_ID3}}
-      
+      runs-on: ubuntu-latest
+  
+      steps:
+        - name: "checkout code"
+          uses: actions/checkout@v4
+        - name: Install Node.js
+          uses: actions/setup-node@v4
+  
+        - name: Install npm
+          uses: actions/setup-node@v4
+          with:
+            node-version: '20'
+            registy-url: 'https://registry.npmjs.org'
+  
+        - name: Install dependencies
+          run: npm install
+  
+        - name: Install Vercel CLI
+          run: npm install --global vercel@latest
+  
+        - name: Pull Vercel Enviroment Information
+          run: vercel pull --yes --enviroment=development --token=${{secrets.DOE_FA_ID3}}
+  
+        - name: Build Project Artifacts
+          run: vercel build --prod --token=${{secrets.DOE_FA_ID3}}
+  
+        - name: Deploy Project Artifacts
+          run: vercel deploy --prebuilt --prod --token=${{secrets.DOE_FA_ID3}}
+        
